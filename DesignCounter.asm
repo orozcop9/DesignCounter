@@ -26,12 +26,6 @@
 
 #include "AssemblyConfig.inc"
 #include "xc.inc"
-
-; Define delay constants
-INNER_LOOP       EQU 0xFF
-INNER_LOOP_REG   EQU 0x20
-INNER_LOOP_2     EQU 0xFF
-INNER_LOOP_2_REG EQU 0x24
     
 ; Constants
 #define BUTTON_1  PORTC, 0
