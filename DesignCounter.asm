@@ -28,9 +28,9 @@
 #include "xc.inc"
 
 ; Program Constants
-INNER_LOOP       EQU 0xFF
+INNER_LOOP       EQU 0xFE
 INNER_LOOP_REG   EQU 0x20
-INNER_LOOP_2     EQU 0xFF
+INNER_LOOP_2     EQU 0xFE
 INNER_LOOP_2_REG EQU 0x24
 
 ; Constants
