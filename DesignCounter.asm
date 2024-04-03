@@ -26,17 +26,21 @@
 
 #include "AssemblyConfig.inc"
 #include "xc.inc"
-    
+
+; Program Constants
+INNER_LOOP       EQU 0xFF
+INNER_LOOP_REG   EQU 0x20
+INNER_LOOP_2     EQU 0xFF
+INNER_LOOP_2_REG EQU 0x24
+
 ; Constants
 #define BUTTON_1  PORTC, 0
 #define BUTTON_2  PORTC, 1
 
 ; Main Program
 PSECT absdata,abs,ovrld
-
     ORG 0x00           ; Reset vector
     GOTO InitializePorts
-
     ORG 0x0020         ; Begin assembly at 0020H
     
 InitializePorts:
@@ -64,9 +68,9 @@ InitializePorts:
     CALL CheckReset
     
 ButtonSetup:
-    BTFSS BUTTON_2 ; If not pressed, skip
+    BTFSS BUTTON_2 ; If pressed, skip
     GOTO Button2Pressed
-    BTFSS BUTTON_1 ; If not pressed, skip
+    BTFSS BUTTON_1 ; If pressed, skip
     GOTO Button1Pressed
     GOTO ButtonSetup ; Constantly checking if a button is pushed
 
